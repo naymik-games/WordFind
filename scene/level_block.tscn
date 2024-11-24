@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbemprvg5cdv6"]
+
+[ext_resource type="Texture2D" uid="uid://bkh55f8mv33gc" path="res://assets/level_panel.png" id="1_qhwwn"]
+[ext_resource type="Script" path="res://scripts/level_block.gd" id="1_xxans"]
+[ext_resource type="FontFile" uid="uid://c2e3ssurs6kas" path="res://assets/AvenuePixel-Regular.ttf" id="3_j5ydl"]
+[ext_resource type="FontFile" uid="uid://b80otsvakf36r" path="res://assets/monogram-extended.ttf" id="4_h23rw"]
+[ext_resource type="PackedScene" uid="uid://126k4nwmx6ib" path="res://scene/stars.tscn" id="5_hm1bk"]
+
+[node name="level_block" type="NinePatchRect"]
+custom_minimum_size = Vector2(200, 175)
+offset_right = 200.0
+offset_bottom = 175.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_qhwwn")
+patch_margin_left = 6
+patch_margin_top = 2
+patch_margin_right = 28
+patch_margin_bottom = 30
+script = ExtResource("1_xxans")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+offset_right = 246.0
+offset_bottom = 108.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hbox" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="number" type="Label" parent="MarginContainer/hbox"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0156863, 0.215686, 0.231373, 1)
+theme_override_fonts/font = ExtResource("3_j5ydl")
+theme_override_font_sizes/font_size = 52
+text = "2"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/hbox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="name" type="Label" parent="MarginContainer/hbox/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.101961, 0.392157, 0.305882, 1)
+theme_override_fonts/font = ExtResource("3_j5ydl")
+theme_override_font_sizes/font_size = 52
+text = "PUZZLE"
+
+[node name="score" type="Label" parent="MarginContainer/hbox/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.227451, 0, 1)
+theme_override_fonts/font = ExtResource("4_h23rw")
+theme_override_font_sizes/font_size = 40
+text = "3463"
+horizontal_alignment = 1
+
+[node name="stars" parent="MarginContainer/hbox/VBoxContainer" instance=ExtResource("5_hm1bk")]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

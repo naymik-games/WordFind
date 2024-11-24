@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bne8viv7c5rh0"]
+
+[ext_resource type="FontFile" uid="uid://b80otsvakf36r" path="res://assets/monogram-extended.ttf" id="1_bkgix"]
+
+[node name="puzzle_info" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 20
+
+[node name="puzzle_stat" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 0.396078, 0.298039, 1)
+theme_override_fonts/font = ExtResource("1_bkgix")
+theme_override_font_sizes/font_size = 62
+text = "0/0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="puzzle_name" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.615686, 0.396078, 0.298039, 1)
+theme_override_fonts/font = ExtResource("1_bkgix")
+theme_override_font_sizes/font_size = 62
+text = "NAME"
+uppercase = true

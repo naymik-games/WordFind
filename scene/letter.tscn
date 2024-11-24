@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://4upxo2kxk0pw"]
+
+[ext_resource type="PackedScene" uid="uid://bxj1l2xrqj04q" path="res://scene/tile.tscn" id="1_q2216"]
+[ext_resource type="Texture2D" uid="uid://dtppsq7vcv3py" path="res://assets/letters.png" id="2_jeaob"]
+
+[node name="letter" instance=ExtResource("1_q2216")]
+index = 4
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+texture = ExtResource("2_jeaob")
+hframes = 7
+vframes = 4

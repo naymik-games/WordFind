@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgt6jwk32b4y7"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_3kyjk"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_3kyjk")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 574.0
+offset_bottom = 1023.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "WordFind"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Select"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

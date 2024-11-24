@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcweq7wveojo8"]
+
+[ext_resource type="FontFile" uid="uid://22g02gst2ly7" path="res://assets/Super Mario Bros. NES.ttf" id="1_141p4"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -294.0
+offset_top = 51.0
+offset_right = 286.0
+offset_bottom = 121.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_right = 20
+
+[node name="word score" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_141p4")
+theme_override_font_sizes/font_size = 30
+text = "000"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="wordbonus" type="Label" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_141p4")
+theme_override_font_sizes/font_size = 30
+text = "00"
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="wordtotal" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_141p4")
+theme_override_font_sizes/font_size = 30
+text = "0000"
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="gametotal" type="Label" parent="MarginContainer4"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1.04684e-05, 0.36033, 6.97896e-06, 1)
+theme_override_fonts/font = ExtResource("1_141p4")
+theme_override_font_sizes/font_size = 30
+text = "0000"
+horizontal_alignment = 2

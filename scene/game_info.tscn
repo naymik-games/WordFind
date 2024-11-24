@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://puya22jfi5ip"]
+
+[ext_resource type="Script" path="res://scripts/game_info.gd" id="1_kqgsv"]
+[ext_resource type="FontFile" uid="uid://22g02gst2ly7" path="res://assets/Super Mario Bros. NES.ttf" id="1_uk8oq"]
+
+[node name="game_info" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kqgsv")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="counter_label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.819608, 0.796078, 0.584314, 1)
+theme_override_fonts/font = ExtResource("1_uk8oq")
+theme_override_font_sizes/font_size = 30
+text = "00"

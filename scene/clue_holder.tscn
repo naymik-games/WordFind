@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dv4p0yagrou7i"]
+
+[node name="clue_holder" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1

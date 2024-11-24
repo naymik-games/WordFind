@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://126k4nwmx6ib"]
+
+[ext_resource type="Texture2D" uid="uid://byyip6xxkufm3" path="res://assets/stars_3.png" id="1_5qpbl"]
+[ext_resource type="Script" path="res://scripts/stars.gd" id="2_4l8vp"]
+
+[node name="stars" type="TextureRect" groups=["star_group"]]
+offset_right = 96.0
+offset_bottom = 32.0
+texture = ExtResource("1_5qpbl")
+stretch_mode = 4
+script = ExtResource("2_4l8vp")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl63tjt3p7qgb"]
+
+[ext_resource type="Script" path="res://scripts/level_select.gd" id="1_sv8q0"]
+[ext_resource type="Texture2D" uid="uid://dgrt44mwmyqg2" path="res://assets/level_select_bg.png" id="2_wib0t"]
+[ext_resource type="FontFile" uid="uid://d00ea3msuly4i" path="res://assets/Clarity.ttf" id="3_nqvd7"]
+
+[node name="level_select" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sv8q0")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wib0t")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 65.0
+offset_right = 556.0
+offset_bottom = 148.0
+theme_override_colors/font_color = Color(0.819608, 0.796078, 0.584314, 1)
+theme_override_fonts/font = ExtResource("3_nqvd7")
+theme_override_font_sizes/font_size = 50
+text = "Select Level	"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 142.0
+offset_right = 578.0
+offset_bottom = 182.0
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="previous_page" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "PREV"
+
+[node name="next_page" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "NEXT"
+
+[node name="VBoxContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+offset_left = 88.0
+offset_top = 212.0
+offset_right = 488.0
+offset_bottom = 893.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+columns = 2
+
+[connection signal="pressed" from="HBoxContainer/previous_page" to="." method="_on_previous_page_pressed"]
+[connection signal="pressed" from="HBoxContainer/next_page" to="." method="_on_next_page_pressed"]

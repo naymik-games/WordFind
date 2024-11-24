@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7hcbmu2rrolp"]
+
+[ext_resource type="PackedScene" uid="uid://bxj1l2xrqj04q" path="res://scene/tile.tscn" id="1_3o2dm"]
+[ext_resource type="Texture2D" uid="uid://bmw37faipqfv1" path="res://assets/tile002.png" id="2_pb3h2"]
+
+[node name="tile_c" instance=ExtResource("1_3o2dm")]
+letter = "c"
+value = 3
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_pb3h2")

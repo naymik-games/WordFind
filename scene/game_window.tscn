@@ -1,0 +1,139 @@
+[gd_scene load_steps=15 format=3 uid="uid://csc6him6d44nd"]
+
+[ext_resource type="Texture2D" uid="uid://dgrt44mwmyqg2" path="res://assets/level_select_bg.png" id="1_i44xo"]
+[ext_resource type="Script" path="res://scripts/grid.gd" id="2_4jc0t"]
+[ext_resource type="PackedScene" uid="uid://puya22jfi5ip" path="res://scene/game_info.tscn" id="2_h73ei"]
+[ext_resource type="PackedScene" uid="uid://cl75ok1gp461o" path="res://scene/word_holder.tscn" id="3_3qpmc"]
+[ext_resource type="Script" path="res://scripts/word_holder.gd" id="4_gpax1"]
+[ext_resource type="Script" path="res://scripts/line_layer.gd" id="5_rpupf"]
+[ext_resource type="PackedScene" uid="uid://dcweq7wveojo8" path="res://scene/scoreArea.tscn" id="6_mhtt8"]
+[ext_resource type="Script" path="res://scripts/score_area.gd" id="7_3mmi4"]
+[ext_resource type="PackedScene" uid="uid://bne8viv7c5rh0" path="res://scene/puzzle_info.tscn" id="8_8fsol"]
+[ext_resource type="Script" path="res://scripts/puzzle_info.gd" id="9_wr76i"]
+[ext_resource type="PackedScene" uid="uid://dv4p0yagrou7i" path="res://scene/clue_holder.tscn" id="10_kda3x"]
+[ext_resource type="Script" path="res://scripts/clue_holder.gd" id="11_giveo"]
+[ext_resource type="Texture2D" uid="uid://b4f0tngunndcr" path="res://assets/NewSprite9.png" id="12_l86cf"]
+[ext_resource type="Texture2D" uid="uid://cax0a3thghp7t" path="res://assets/NewSprite11.png" id="12_sa14k"]
+
+[node name="game_window" type="Node"]
+
+[node name="BG" type="NinePatchRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 576.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_i44xo")
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[node name="game_info" parent="." instance=ExtResource("2_h73ei")]
+offset_right = 80.0
+offset_bottom = 54.0
+
+[node name="grid" type="Node2D" parent="."]
+script = ExtResource("2_4jc0t")
+width = 8
+height = 10
+x_start = 64
+y_start = 800
+x_offset = 64
+Double_Bonus_Count = 3
+Triple_Bonus_Count = 2
+current_counter_value = 120
+
+[node name="game_timer" type="Timer" parent="grid"]
+
+[node name="Panel" type="CenterContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 118.0
+offset_right = 287.0
+offset_bottom = 186.0
+grow_horizontal = 2
+
+[node name="LineLayer" type="CanvasLayer" parent="."]
+layer = 4
+script = ExtResource("5_rpupf")
+
+[node name="Line2D" type="Line2D" parent="LineLayer"]
+width = 6.0
+default_color = Color(0.329158, 0.329158, 0.329158, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="ScoreArea" parent="." instance=ExtResource("6_mhtt8")]
+script = ExtResource("7_3mmi4")
+
+[node name="word_holder" parent="." instance=ExtResource("3_3qpmc")]
+offset_left = -280.0
+offset_top = 112.0
+offset_right = 286.0
+offset_bottom = 176.0
+script = ExtResource("4_gpax1")
+
+[node name="puzzle_info" parent="." instance=ExtResource("8_8fsol")]
+offset_left = 1.0
+offset_top = 835.0
+offset_right = 577.0
+offset_bottom = 885.0
+script = ExtResource("9_wr76i")
+
+[node name="clue_holder" parent="." instance=ExtResource("10_kda3x")]
+offset_top = 896.0
+offset_right = 576.0
+offset_bottom = 965.0
+script = ExtResource("11_giveo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_top = 960.0
+offset_right = 575.0
+offset_bottom = 1016.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_constants/separation = 10
+
+[node name="replay_button" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+texture_normal = ExtResource("12_l86cf")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="menu_button" type="TextureButton" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(42, 42)
+layout_mode = 2
+texture_normal = ExtResource("12_sa14k")
+ignore_texture_size = true
+stretch_mode = 4
+
+[connection signal="add_line_point" from="grid" to="LineLayer" method="_on_grid_add_line_point"]
+[connection signal="clear_line" from="grid" to="LineLayer" method="_on_grid_clear_line"]
+[connection signal="remove_clue" from="grid" to="clue_holder" method="_on_grid_remove_clue"]
+[connection signal="remove_line_last" from="grid" to="LineLayer" method="_on_grid_remove_line_last"]
+[connection signal="setup_clues" from="grid" to="clue_holder" method="_on_grid_setup_clues"]
+[connection signal="update_counter" from="grid" to="game_info" method="_on_grid_update_counter"]
+[connection signal="update_puzzle_info" from="grid" to="puzzle_info" method="_on_grid_update_puzzle_info"]
+[connection signal="update_puzzle_name" from="grid" to="puzzle_info" method="_on_grid_update_puzzle_name"]
+[connection signal="update_word" from="grid" to="word_holder" method="_on_grid_update_word"]
+[connection signal="update_word_score" from="grid" to="ScoreArea" method="_on_grid_update_word_score"]
+[connection signal="update_word_score_final" from="grid" to="ScoreArea" method="_on_grid_update_word_score_final"]
+[connection signal="update_word_status" from="grid" to="word_holder" method="_on_grid_update_word_status"]
+[connection signal="timeout" from="grid/game_timer" to="grid" method="_on_game_timer_timeout"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/replay_button" to="grid" method="_on_replay_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/menu_button" to="grid" method="_on_texture_button_pressed"]
