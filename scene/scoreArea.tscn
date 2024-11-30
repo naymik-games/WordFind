@@ -18,6 +18,7 @@ theme_override_constants/margin_left = 40
 theme_override_constants/margin_right = 20
 
 [node name="word score" type="Label" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_141p4")
 theme_override_font_sizes/font_size = 30
@@ -52,7 +53,7 @@ theme_override_constants/margin_right = 20
 
 [node name="gametotal" type="Label" parent="MarginContainer4"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1.04684e-05, 0.36033, 6.97896e-06, 1)
+theme_override_colors/font_color = Color(0.486275, 0.937255, 0.745098, 1)
 theme_override_fonts/font = ExtResource("1_141p4")
 theme_override_font_sizes/font_size = 30
 text = "0000"

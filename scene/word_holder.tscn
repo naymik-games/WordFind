@@ -1,36 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cl75ok1gp461o"]
+[gd_scene load_steps=2 format=3 uid="uid://cl75ok1gp461o"]
 
-[ext_resource type="Texture2D" uid="uid://b3j5n4tldshd1" path="res://assets/WordHolder.png" id="1_i7j2w"]
-[ext_resource type="FontFile" uid="uid://d00ea3msuly4i" path="res://assets/Clarity.ttf" id="2_p55da"]
+[ext_resource type="FontFile" uid="uid://imqxexikya8q" path="res://assets/my ui thick.ttf" id="1_6sd6v"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -287.5
-offset_right = 287.5
-offset_bottom = 40.0
-grow_horizontal = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 2
-texture = ExtResource("1_i7j2w")
-stretch_mode = 2
-
-[node name="Label" type="Label" parent="TextureRect"]
-layout_mode = 1
-anchors_preset = 15
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 18.0
-offset_top = -2.0
-offset_right = 1.0
-offset_bottom = 3.0
+offset_left = 22.0
+offset_right = -25.0
+offset_bottom = 64.0
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0.219859, 0.336833, 0.237219, 1)
-theme_override_fonts/font = ExtResource("2_p55da")
-theme_override_font_sizes/font_size = 42
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.878431, 0.972549, 0.811765, 1)
+theme_override_fonts/font = ExtResource("1_6sd6v")
+theme_override_font_sizes/font_size = 40
 text = "WORD"
 uppercase = true

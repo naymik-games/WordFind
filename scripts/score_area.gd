@@ -28,5 +28,7 @@ func _on_grid_update_word_score(amount, bonus):
 func _on_grid_update_word_score_final(amount, bonus, total):
 	word_score_label.text = str(amount)
 	word_bonus_label.text = "x" + str(bonus)
+	word_total_label.text = str(amount * bonus)
+	
 	game_total_label.text = str(total)
 	

@@ -17,9 +17,9 @@ func _on_grid_update_puzzle_info(count, total):
 		stat_label = $MarginContainer/puzzle_stat
 	stat_label.text = str(count)+"/"+str(total)
 	if count == total:
-		stat_label.set("theme_override_colors/font_color",Color("95ff8d"))
+		stat_label.set("theme_override_colors/font_color",Color("7cefbe"))
 		theme_label.text = "PUZZLE COMPLETE!"
-		theme_label.set("theme_override_colors/font_color",Color("95ff8d"))
+		theme_label.set("theme_override_colors/font_color",Color("7cefbe"))
 	
 
 

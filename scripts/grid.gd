@@ -328,6 +328,7 @@ func touch_input():
 				word_value += all_pieces[mouse.x][mouse.y].value
 				print(word)
 				emit_signal("update_word_status",0)
+				emit_signal("update_word_score",0,0)
 				emit_signal("add_line_point",grid_to_pixel(mouse.x,mouse.y))
 				current_matches.append(mouse)
 				all_pieces[mouse.x][mouse.y].dim()
@@ -343,7 +344,7 @@ func touch_input():
 				word += letters[all_pieces[mouse.x][mouse.y].index]
 				word_value += all_pieces[mouse.x][mouse.y].value
 				print(word)
-				emit_signal("update_word_score",word_value,0)
+				#emit_signal("update_word_score",word_value,0)
 				emit_signal("update_word",word)
 				emit_signal("add_line_point",grid_to_pixel(mouse.x,mouse.y))
 			#backtrack

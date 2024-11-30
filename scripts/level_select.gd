@@ -1,5 +1,5 @@
 extends Control
-@onready var block = preload("res://scene/level_block.tscn")
+const  block = preload("res://scene/level_block.tscn")
 @onready var level_grid = $VBoxContainer
 var next_page_key: String
 var prev_page_key: String

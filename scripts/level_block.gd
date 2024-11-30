@@ -2,6 +2,7 @@ extends NinePatchRect
 @onready var number = $MarginContainer/hbox/number
 @onready var name1 = $MarginContainer/hbox/VBoxContainer/name
 @onready var score = $MarginContainer/hbox/VBoxContainer/score
+@onready var stars: TextureRect = $MarginContainer/hbox/VBoxContainer/stars
 
 var over = false
 var selected_level: int
@@ -32,15 +33,18 @@ func set_level(level_num: int, level_name: String):
 		name1 =  $MarginContainer/hbox/VBoxContainer/name
 	if !score:
 		score = $MarginContainer/hbox/VBoxContainer/score
+	if !stars:
+		stars = $MarginContainer/hbox/VBoxContainer/stars
 	number.text = str(level_num)
 	name1.text = level_name.to_upper()
 	selected_level = level_num
 	if SaveData.level_data.has(str(SaveData.current_page)+str(selected_level)):
 		score.text = str(SaveData.level_data[str(SaveData.current_page)+str(selected_level)].score)
 		#get_tree().call_group("star_group","set_stars",2)
+		stars.set_stars(2)
 	else:
 		score.text = str(0)
-		#get_tree().call_group("star_group","set_stars",0)
+		stars.set_stars(0)
 
 #str(SaveData.current_page)+str(selected_level)
 
